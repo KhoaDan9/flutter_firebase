@@ -8,8 +8,12 @@ import 'package:flutter/material.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(const MaterialApp(
-    home: HomePage(),
     debugShowCheckedModeBanner: false,
+    initialRoute: '/login',
+    routes: {
+      '/login': (context) => const LoginView(),
+      '/register': (context) => const RegisterView(),
+    },
   ));
 }
 
@@ -31,14 +35,14 @@ class HomePage extends StatelessWidget {
           builder: (context, snapshot) {
             switch (snapshot.connectionState) {
               case ConnectionState.done:
-                final user = FirebaseAuth.instance.currentUser;
-                print(user);
-                if (user?.emailVerified ?? false) {
-                } else {
-                  return const VerifyEmailView();
-                }
-                return const Text('Done');
-
+                // final user = FirebaseAuth.instance.currentUser;
+                // print(user);
+                // if (user?.emailVerified ?? false) {
+                // } else {
+                //   return const VerifyEmailView();
+                // }
+                // return const Text('Done');
+                return const LoginView();
               default:
                 return const Text('Loading');
             }
