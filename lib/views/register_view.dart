@@ -53,30 +53,38 @@ class _RegisterViewState extends State<RegisterView> {
                 const InputDecoration(hintText: 'Enter your password here'),
           ),
           Center(
-              child: TextButton(
-            onPressed: () async {
-              final email = _email.text;
-              final password = _password.text;
-              try {
-                final userCredential = await FirebaseAuth.instance
-                    .createUserWithEmailAndPassword(
-                        email: email, password: password);
-                print(userCredential);
-              } on FirebaseAuthException catch (e) {
-                if (e == 'weak-password') {
-                  print('Weak password');
-                } else if (e == 'email-already-in-use') {
-                  print('Email already in use');
-                } else if (e == 'invalid-email') {
-                  print('Invalid email');
-                } else {
-                  print(e.code);
-                  print(e);
+            child: TextButton(
+              onPressed: () async {
+                final email = _email.text;
+                final password = _password.text;
+                try {
+                  final userCredential = await FirebaseAuth.instance
+                      .createUserWithEmailAndPassword(
+                          email: email, password: password);
+                  print(userCredential);
+                } on FirebaseAuthException catch (e) {
+                  if (e == 'weak-password') {
+                    print('Weak password');
+                  } else if (e == 'email-already-in-use') {
+                    print('Email already in use');
+                  } else if (e == 'invalid-email') {
+                    print('Invalid email');
+                  } else {
+                    print(e.code);
+                    print(e);
+                  }
                 }
-              }
+              },
+              child: const Text('Dang ki'),
+            ),
+          ),
+          TextButton(
+            onPressed: () {
+              Navigator.of(context)
+                  .pushNamedAndRemoveUntil('/login/', (route) => false);
             },
-            child: const Text('oke thoi'),
-          ))
+            child: const Text('Already registered? Login here!'),
+          ),
         ],
       ),
     );
