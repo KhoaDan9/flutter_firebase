@@ -6,7 +6,6 @@ import 'package:firebase/views/verify_email_view.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'dart:developer' as devtools show log;
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,7 +16,8 @@ void main() {
       homeRoute: (context) => const HomePage(),
       loginRoute: (context) => const LoginView(),
       registerRoute: (context) => const RegisterView(),
-      notesRoute: (context) => const NotesView()
+      notesRoute: (context) => const NotesView(),
+      verifyEmailRoute: (context) => const VerifyEmailView(),
     },
   ));
 }
