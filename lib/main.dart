@@ -41,8 +41,6 @@ class HomePage extends StatelessWidget {
           return const VerifyEmailView();
         } else if (state is AuthStateRegistering) {
           return const RegisterView();
-        } else if (state is AuthStateRegister) {
-          return const RegisterView();
         } else {
           return const Scaffold(
             body: CircularProgressIndicator(),

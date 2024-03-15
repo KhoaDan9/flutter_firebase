@@ -3,7 +3,6 @@ import 'package:firebase/views/utilities/dialogs/cannot_share_empty_notes_dialog
 import 'package:firebase/views/utilities/generics/get_arguments.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase/services/cloud/cloud_note.dart';
-import 'package:firebase/services/cloud/cloud_storage_exceptions.dart';
 import 'package:firebase/services/cloud/firebase_cloud_storage.dart';
 import 'package:share_plus/share_plus.dart';
 

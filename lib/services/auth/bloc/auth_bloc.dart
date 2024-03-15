@@ -93,7 +93,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
     //go register
     on<AuthEventShouldRegister>((event, emit) {
-      emit(const AuthStateRegister());
+      emit(const AuthStateRegistering(null));
     });
   }
 }
