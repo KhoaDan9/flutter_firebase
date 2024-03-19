@@ -112,6 +112,9 @@ class FirebaseAuthProvider implements AuthProvider {
     try {
       await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
     } on FirebaseAuthException catch (e) {
+      if (e.code == 'network-request-failed') {
+        throw UserIsNotExistException();
+      }
       if (e.code == 'channel-error') {
         throw InputRequiredException();
       }

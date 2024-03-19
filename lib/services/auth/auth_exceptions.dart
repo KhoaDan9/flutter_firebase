@@ -18,3 +18,5 @@ class GenericAuthException implements Exception {}
 class UserNotLoggedInAuthException implements Exception {}
 
 class InputRequiredException implements Exception {}
+
+class UserIsNotExistException implements Exception {}

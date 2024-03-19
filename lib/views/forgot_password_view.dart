@@ -38,6 +38,8 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
             await showErrorDialog(context, 'Input required');
           } else if (state.exception is InvalidEmailAuthException) {
             await showErrorDialog(context, 'Enter your email!');
+          } else if (state.exception is UserIsNotExistException) {
+            await showErrorDialog(context, 'User is not exist!');
           } else if (state.exception is GenericAuthException) {
             await showErrorDialog(context, 'Error');
           } else if (state.hasSentEmail == true) {
