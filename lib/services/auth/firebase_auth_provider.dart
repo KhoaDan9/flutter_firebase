@@ -32,6 +32,8 @@ class FirebaseAuthProvider implements AuthProvider {
         throw UserNotLoggedInAuthException();
       }
     } on FirebaseAuthException catch (e) {
+      print('!@#%^&^%#@#%^&*&^%#@#%^&*()');
+      print(e.code);
       if (e.code == 'weak-password') {
         throw WeakPasswordAuthException();
       } else if (e.code == 'email-already-in-use') {
@@ -113,7 +115,7 @@ class FirebaseAuthProvider implements AuthProvider {
       await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'network-request-failed') {
-        throw UserIsNotExistException();
+        throw ConnectFailedExistException();
       }
       if (e.code == 'channel-error') {
         throw InputRequiredException();

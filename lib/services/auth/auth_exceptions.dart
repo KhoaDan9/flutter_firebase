@@ -19,4 +19,4 @@ class UserNotLoggedInAuthException implements Exception {}
 
 class InputRequiredException implements Exception {}
 
-class UserIsNotExistException implements Exception {}
+class ConnectFailedExistException implements Exception {}
