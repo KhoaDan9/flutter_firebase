@@ -1,7 +1,6 @@
 import 'package:firebase/services/auth/bloc/auth_bloc.dart';
 import 'package:firebase/services/auth/bloc/auth_event.dart';
 import 'package:firebase/services/auth/bloc/auth_state.dart';
-import 'package:firebase/views/utilities/dialogs/sent_forgot_password_email_dialog.dart';
 import 'package:firebase/views/utilities/dialogs/sent_verify_email.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
