@@ -105,8 +105,16 @@ class _LoginViewState extends State<LoginView> {
                         ),
                       );
                 },
-                child: const Text('Dang nhap'),
+                child: const Text('Login'),
               ),
+            ),
+            TextButton(
+              onPressed: () {
+                context.read<AuthBloc>().add(
+                      const AuthEventGoForgotPassword(),
+                    );
+              },
+              child: const Text('Forgot password?'),
             ),
             TextButton(
               onPressed: () {
@@ -115,7 +123,7 @@ class _LoginViewState extends State<LoginView> {
                     );
               },
               child: const Text('Not registered yet? Register here!'),
-            )
+            ),
           ],
         ),
       ),
