@@ -17,7 +17,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           ),
         );
       } else if (!user.isEmailVerified) {
-        emit(const AuthStateNeedVerify());
+        emit(const AuthStateNeedVerify(hasSentEmail: false));
       } else {
         emit(AuthStateLoggedIn(user));
       }
@@ -45,7 +45,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           ),
         );
         if (!user.isEmailVerified) {
-          emit(const AuthStateNeedVerify());
+          emit(const AuthStateNeedVerify(hasSentEmail: false));
         } else {
           emit(AuthStateLoggedIn(user));
         }
@@ -72,7 +72,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     //send email validation
     on<AuthEventSendEmailVerification>((event, emit) async {
       await provider.sendEmailVerification();
-      emit(state);
+      emit(const AuthStateNeedVerify(hasSentEmail: true));
     });
 
     //register
@@ -84,8 +84,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           email: email,
           password: password,
         );
-        await provider.sendEmailVerification();
-        emit(const AuthStateNeedVerify());
+        emit(const AuthStateNeedVerify(hasSentEmail: false));
       } on Exception catch (e) {
         emit(AuthStateRegistering(e));
       }

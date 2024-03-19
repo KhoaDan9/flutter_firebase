@@ -21,7 +21,8 @@ class AuthStateRegister extends AuthState {
 }
 
 class AuthStateNeedVerify extends AuthState {
-  const AuthStateNeedVerify();
+  final bool hasSentEmail;
+  const AuthStateNeedVerify({required this.hasSentEmail});
 }
 
 class AuthStateRegistering extends AuthState {

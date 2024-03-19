@@ -3,7 +3,7 @@ import 'package:firebase/services/auth/bloc/auth_bloc.dart';
 import 'package:firebase/services/auth/bloc/auth_event.dart';
 import 'package:firebase/services/auth/bloc/auth_state.dart';
 import 'package:firebase/views/utilities/dialogs/error_dialog.dart';
-import 'package:firebase/views/utilities/dialogs/show_sent_email_dialog.dart';
+import 'package:firebase/views/utilities/dialogs/sent_forgot_password_email_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -43,7 +43,7 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
           } else if (state.exception is GenericAuthException) {
             await showErrorDialog(context, 'Error');
           } else if (state.hasSentEmail == true) {
-            await showSentEmailDialog(context);
+            await sentForgotPasswordEmailDialog(context);
           }
         }
       }),
